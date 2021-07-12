@@ -46,7 +46,7 @@ cout<<"\nEnter marks in Math:  ";
 cin>>math_marks;
 cout<<"\nEnter marks in Science:  ";
 cin>>sci_marks;
-cout<<"\nEnter marks in 2nd language:  ";
+cout<<"\nEnter marks in Hindi:  ";
 cin>>lang2_marks;
 cout<<"\nEnter marks in Computer science:  ";
 cin>>cs_marks;
@@ -87,11 +87,11 @@ system("cls");
 cout<<"\n\n\n\tMENU";
 cout<<"\n\n\t1.Create student record";
 cout<<"\n\n\t2. Search student record";
-cout<<"\n\n\t3. Display all students records ";
+cout<<"\n\n\t3. Display  students records ";
 cout<<"\n\n\t4.Delete student record";
 cout<<"\n\n\t5.Modify student record";
 cout<<"\n\n\t6.Exit";
-cout<<"\n\n\tWhat is your Choice (1/2/3/4/5/6) ";
+cout<<"\n\n\n\tWhat is your Choice (1/2/3/4/5/6) ";
 cin>>ch;
 system("cls");
 switch(ch)
@@ -106,7 +106,7 @@ cin>>num;
 delete_student(num);break;
 case '5': cout<<"\n\n\tEnter Roll number "; cin>>num;
 change_student(num);break;
-case '6': cout<<"Exiting, Thank you!";exit(0);
+case '6': cout<<" Thank you!";exit(0);
 }
 }while(ch!='6');
 return 0;
@@ -120,11 +120,10 @@ oFile.open("student.dat",ios::binary|ios::app);
 stud.getdata();
 oFile.write(reinterpret_cast<char *> (&stud), sizeof(student));
 oFile.close();
-     cout<<"\n\nStudent record Has Been Created ";
+     cout<<"\n\nrecord updated ";
 cin.ignore();
 cin.get();
 }
-// read file records
 void display_all()
 {
 student stud;
@@ -137,17 +136,17 @@ cin.ignore();
 cin.get();
 return;
 }
-cout<<"\n\n\n\t\tDISPLAYING ALL RECORDS\n\n";
+cout<<"\n\n\n\t\tALL RECORDS\n\n";
 while(inFile.read(reinterpret_cast<char *> (&stud), sizeof(student)))
 {
 stud.showdata();
-cout<<"\n\n====================================\n";
+cout<<"\n\n\n";
 }
 inFile.close();
 cin.ignore();
 cin.get();
 }
-//read specific record based on roll number
+
 void display_sp(int n)
 {
 student stud;
@@ -171,11 +170,11 @@ flag=true;
 }
 iFile.close();
 if(flag==false)
-cout<<"\n\nrecord does not exist";
+cout<<"\n\nThe record does not exist";
 cin.ignore();
 cin.get();
 }
-// modify record for specified roll number
+
 void change_student(int n)
 {
 bool found=false;
@@ -184,7 +183,7 @@ fstream fl;
 fl.open("student.dat",ios::binary|ios::in|ios::out);
 if(!fl)
 {
-cout<<"File could not be opened. Press any Key to exit...";
+cout<<"could not open file , Press any Key to exit...";
 cin.ignore();
 cin.get();
 return;
@@ -210,7 +209,7 @@ cout<<"\n\n Record Not Found ";
 cin.ignore();
 cin.get();
 }
-//delete record with particular roll number
+
 void delete_student(int n)
 {
 student stud;
