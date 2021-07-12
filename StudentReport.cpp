@@ -91,7 +91,7 @@ cout<<"\n\n\t3. Display  students records ";
 cout<<"\n\n\t4.Delete student record";
 cout<<"\n\n\t5.Modify student record";
 cout<<"\n\n\t6.Exit";
-cout<<"\n\n\n\tWhat is your Choice (1/2/3/4/5/6) ";
+cout<<"\n\n\n\tEnter is your Choice (1/2/3/4/5/6) ";
 cin>>ch;
 system("cls");
 switch(ch)
